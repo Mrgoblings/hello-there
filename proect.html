@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<title>Eco site</title>
+    <style>
+	body{
+		background-color: #baf8ba;
+	}
+	h1{
+	  right: -500px;
+	  position: relative;
+	}
+	h2{
+	  right: -50px;
+	  bottom: -50px;
+	  position: relative;
+	}
+       .container{
+	   width: 1450px;
+	   min-width:1500px
+	   margin: 0px;
+	   background: #f9f9f9;
+	   font-size: 24px;
+	   padding:  25px;
+	   position: absolute;
+	   right: 25px;
+	   }
+	.parallax{
+	      background: url('image-asset.jpg') no-repeat center ;
+          background-size: cover;
+          background-attachment: fixed;
+	      height: 500px;
+	}
+	* {
+        margin: 0px;
+        padding: 0px;
+      }
+      li a{
+	    color:#000;
+	   text-decoration:none;
+      }
+      section{
+		position: relative;
+		width: 100%;
+		min-height: 100vh;
+		display: flex;
+		justify-content:centre;
+		align-items:centre;
+		overflow: hidden;
+      }
+      #sidebar {
+        position: absolute;
+        width: 300px;
+        height: 100%;
+        background: #fff;
+        left: -300px;
+        transition: .4s;
+      }
+      #sidebar ul li {
+		position: relative;
+		bottom: -150px;
+        color: #000;
+        font-size: 23px;
+        padding: 26px 24px;
+		margin: 0 20px;
+		font-sized:2em;
+      }
+
+      #sidebar .toggle-btn {
+        position: absolute;
+        top: 30px;
+        left: 330px;
+      }
+
+      .toggle-btn span {
+        width: 45px;
+        height: 4px;
+        background: #000;
+        display: block;
+        margin-top: 4px;
+      }
+
+      #sidebar.active {
+        left: 0;
+      }
+    </style>
+</head>
+<body>
+<div id="sidebar">
+      <div class="toggle-btn" onclick ="show()">
+        <span></span>
+        <span></span>
+        <span></span>
+<section>
+   <header>
+	<div class="toggle"></div>
+   </header>
+</section>
+      </div>
+      <ul>
+		<h2>HELLO THERE</h2>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Work">Work</a></li>
+	    <li><a href="#Contact">Contact</a></li>
+      </ul>
+    </div>
+    <script>
+      function show() {
+        document.getElementById('sidebar').classList.toggle('active');
+      }
+    </script>
+	<div class="container">
+   <h1> <a name="Home">Home</a></h1>
+   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Vestibulum non elit nec diam consequat fermentum. Integer finibus tempor risus sed bibendum. 
+Sed sit amet placerat sem, quis sagittis nisi. Donec et mi sed nisi elementum porttitor. 
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse commodo fringilla odio in gravida. 
+Suspendisse pulvinar lacus sit amet felis ornare, ac iaculis dolor cursus. 
+Donec venenatis, nisi in efficitur facilisis, metus quam porta lectus, in vehicula nunc diam a nunc. 
+Nullam lobortis nibh tristique mauris sodales ultricies. Ut lacinia condimentum nunc et scelerisque. 
+Vestibulum pretium pellentesque tellus, in bibendum massa blandit a.</p>
+    <div class="parallax">
+    </div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+Vestibulum non elit nec diam consequat fermentum. Integer finibus tempor risus sed bibendum. 
+Sed sit amet placerat sem, quis sagittis nisi. Donec et mi sed nisi elementum porttitor. 
+Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse commodo fringilla odio in gravida. 
+Suspendisse pulvinar lacus sit amet felis ornare, ac iaculis dolor cursus. 
+Donec venenatis, nisi in efficitur facilisis, metus quam porta lectus, in vehicula nunc diam a nunc. 
+Nullam lobortis nibh tristique mauris sodales ultricies. Ut lacinia condimentum nunc et scelerisque. 
+Vestibulum pretium pellentesque tellus, in bibendum massa blandit a.</p>
+</div>
+</body>
+</html>
