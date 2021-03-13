@@ -61,7 +61,8 @@
             }
 
            </script>
-           <script src="game.js"></script>
+            <script src="loadImages.js"></script>
+            <script src="game.js"></script>
             <script>
             if (endlessCanvas == undefined) {
                 var endlessCanvas = false;
@@ -95,10 +96,6 @@
             for (i = 0; i < 256; ++i) {
                 isKeyPressed.push(0);
             }
-            </script>
-            
-            <script src="loadImages"></script>
-            <script>
             // gridSize = 50; // uncomment or add to game.js if you want a grid
             var reqAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
                 setTimeout(callback, 1000 / 30);

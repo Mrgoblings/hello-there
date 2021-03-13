@@ -14,8 +14,6 @@ let camera = {
 
 let background = {toX:800,toY:800}
 
-
-var backStars;
 let cc = {
     tree:12,
 }
@@ -29,20 +27,19 @@ function update() {
     if(mouseY>camera.maxY && camera.y<background.toY*5-window.innerHeight -  camera.speed)camera.y+=camera.speed
 */
     if(scroll.start.ing){
-        if(camera.x>camera.speed && camera.x<background.toX*5 - camera.maxX + camera.speed)
+        if(camera.x>=0 && camera.x<background.toX*5 - camera.maxX + camera.speed)
         camera.x +=(scroll.start.x - mouseX)/camera.speed
-        if(camera.y>camera.speed && camera.y<background.toY*5 - camera.maxY + camera.speed)
+        if(camera.y>=0 && camera.y<background.toY*5 - camera.maxY + camera.speed)
         camera.y +=(scroll.start.y - mouseY)/camera.speed
     }
     if(camera.x>background.toX)camera.x = background.toX
     if(camera.y>background.toY)camera.y = background.toY
-    if(camera.x<0)camera.x = 1 
-    if(camera.y<0)camera.y = 1
+    if(camera.x<0)camera.x = 0 
+    if(camera.y<0)camera.y = 0
 }
 function draw() {
     //drawImage(backStars,0-camera.x, 0-camera.y, background.toX, background.toY);
-    context.fillStyle = "#000"
-    var backgr = tryToLoad("backgr","black");
+    context.fillStyle = "#000" 
     context.fillRect(0,0,innerWidth,innerHeight)
     for(x=0;x<5;x++)
         for(y=0;y<5;y++)
