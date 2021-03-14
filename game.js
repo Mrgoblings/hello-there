@@ -123,24 +123,24 @@ let camera = {
 
 let windmill = [
     {
-        x:0,
-        y:0,
-        width:100,
-        height:200,
+        x:150,
+        y:540,
+        width:200,
+        height:400,
         animation:0
     },
     {
         x:0,
         y:0,
-        width:100,
-        height:200,
+        width:200,
+        height:400,
         animation:1
     },
     {
         x:0,
         y:0,
-        width:100,
-        height:200,
+        width:200,
+        height:400,
         animation:2
     }
 ]
@@ -243,7 +243,8 @@ function draw() {
             drawImageWithCamera(backgr,(0 + background.toX*x), (0 + background.toY*y), background.toX, background.toY);
             context.fillStyle="black"
             //grid
-            context.strokeRect(background.toX*x-camera.x,background.toY*y-camera.y,800,800)        }
+            context.strokeRect(background.toX*x-camera.x,background.toY*y-camera.y,800,800)        
+        }
     }
 
     //trash/punk
@@ -253,21 +254,21 @@ function draw() {
 
     //river
     drawImageWithCamera(riverr[river.animation],river.x,river.y,river.width,river.height)
-
-    //menu??
-    if(menu.inGame.open==1)menu.inGame.draw()
     
-
     //lake
     if(lake.type) drawImageWithCamera(lake0,lake.x,lake.y,lake.width,lake.height)   
     else drawImageWithCamera(lake1,lake.x,lake.y,lake.width,lake.height)
+
+    drawImageWithCamera(most,970,860,310,250);
     
     //coin and amount
     drawImage(GCoin,coin.x,coin.y,coin.width,coin.height);
     context.fillStyle="#000"
     context.font = "50px Arrial"
     context.fillText(coin.n,coin.x+coin.width+5,60)
-    
+
+    //menu
+    if(menu.inGame.open==1)menu.inGame.draw()
 
     //last----------------------------
     //bins
