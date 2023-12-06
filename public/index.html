@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Shop</title>
+</head>
+<body>
+    <h1>Welcome to the Cookie Shop</h1>
+    <p>Available Cookies:</p>
+    <ul id="cookie-list"></ul>
+    
+    <label for="cookie-input">Choose a cookie:</label>
+    <select id="cookie-input"></select>
+
+    <label for="quantity-input">Quantity:</label>
+    <input type="number" id="quantity-input" min="1" value="1">
+
+    <button onclick="buyCookie()">Buy Cookie</button>
+
+    <script>
+        async function buyCookie() {
+            const cookieId = document.getElementById('cookie-input').value;
+            const quantity = document.getElementById('quantity-input').value;
+
+            // Validate input
+            if (!cookieId || quantity <= 0) {
+                alert('Please choose a valid cookie and quantity.');
+                return;
+            }
+
+            // Dummy logic to buy a cookie (replace with actual logic)
+            const response = await fetch(`/api/buy-cookie/${cookieId}?quantity=${quantity}`, { method: 'POST' });
+
+            if (response.ok) {
+                alert('Cookie bought successfully!');
+                // Refresh the cookie list after a successful purchase
+                getCookieList();
+            } else {
+                alert('Failed to buy cookie. Please try again.');
+            }
+        }
+
+        async function getCookieList() {
+            const response = await fetch('/api/cookies');
+            const cookies = await response.json();
+
+            const cookieListElement = document.getElementById('cookie-list');
+            const cookieSelectElement = document.getElementById('cookie-input');
+
+            cookieListElement.innerHTML = '';
+            cookieSelectElement.innerHTML = '';
+
+            cookies.forEach(cookie => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${cookie.name} - Quantity: ${cookie.quantity}`;
+                cookieListElement.appendChild(listItem);
+
+                const option = document.createElement('option');
+                option.value = cookie.id;
+                option.textContent = cookie.name;
+                cookieSelectElement.appendChild(option);
+            });
+        }
+
+        // Initial load of the cookie list
+        getCookieList();
+    </script>
+</body>
+</html>
